@@ -13,14 +13,12 @@
     </head>
     <body>
         <h1 style="text-align: center">SIA</h1>
-        <form action="LoginServlet" style="text-align: center;">
-            <table style="border-style: solid">
-                <label>Username : </label><input type="text" name="username">
-                <br>
-                <label>Password : </label><input type="password" name="password">
-                <br>
-                <input type="submit" value="Masuk">
-            </table>
+        <form action="LoginServlet" method="post" style="text-align: center;">
+            <label>Username : </label><input type="text" name="username">
+            <br>
+            <label>Password : </label><input type="password" name="password">
+            <br>
+            <input type="submit" value="Masuk">
         </form>
     </body>
 </html>
