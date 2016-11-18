@@ -10,6 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SIA</title>
+        <script type="text/javascript">
+            <% if ("1".equals(request.getParameter("error"))) {%>
+            alert("Username/Password anda salah!");
+            <%}%>
+        </script>
     </head>
     <body>
         <h1 style="text-align: center">SIA</h1>

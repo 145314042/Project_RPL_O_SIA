@@ -44,6 +44,9 @@ public class LoginServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 //            request.setAttribute("username", username);
+            out.print("<form action=\"siswa.jsp\">"
+                    + "<input type=\'hidden\' name=\'username\' value=\'"+username+"\'>"
+                    + "</form>");            
             response.sendRedirect(login(username,password));
         } finally {
             out.close();
@@ -129,7 +132,7 @@ public class LoginServlet extends HttpServlet {
             }
         }
         //data tidak ada
-        else return "home?error=1";
+        else return "home.jsp?error=1";
         return null;
     }
 

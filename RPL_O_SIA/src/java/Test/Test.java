@@ -7,6 +7,7 @@ package Test;
 
 import Control.LoginServlet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,5 +16,6 @@ import java.sql.SQLException;
 public class Test {
     public static void main(String[] args) throws SQLException {
         System.out.println(new LoginServlet().login("guru", "guru"));
+        JOptionPane.showMessageDialog(null, "");
     }
 }
