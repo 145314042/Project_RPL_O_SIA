@@ -4,7 +4,6 @@
     Author     : Lycorice
 --%>
 
-<%@page import="javax.swing.JOptionPane"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +13,8 @@
     </head>
     <body>
         <h1 style="text-align: center">Menu Guru</h1>
-        <form action="" style="text-align: center">
-            <%JOptionPane.showMessageDialog(null, request.getAttribute("username"));%>
-            <input type="">
+        <form action="nilaiSiswa" style="text-align: center">
+            <input type="submit" value="Nilai Siswa">
         </form>
     </body>
 </html>
