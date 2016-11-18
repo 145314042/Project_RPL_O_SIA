@@ -15,12 +15,12 @@ import oracle.jdbc.pool.OracleDataSource;
  * @author Lycorice
  */
 public class DatabaseConnection {
-//    private String jdbcURL = "jdbc:oracle:thin:@172.23.9.185:1521:orcl";
-//    private String user = "mhs145314042";
-//    private String password = "mhs145314042";
-    private String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
-    private String user = "sia";
-    private String password = "sia";
+    private String jdbcURL = "jdbc:oracle:thin:@172.23.9.185:1521:orcl";
+    private String user = "mhs145314042";
+    private String password = "mhs145314042";
+//    private String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
+//    private String user = "sia";
+//    private String password = "sia";
     private Connection connection ;
 
     public DatabaseConnection() {
