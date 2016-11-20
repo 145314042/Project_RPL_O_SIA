@@ -10,20 +10,20 @@ package Model;
  * @author bella
  */
 public class Mata_Pelajaran {
-    String kode_makul;
+    String kode_pelajaran;
     double kkm;
 
-    public Mata_Pelajaran(String kode_makul, double kkm) {
-        this.kode_makul = kode_makul;
+    public Mata_Pelajaran(String kode_pelajaran, double kkm) {
+        this.kode_pelajaran = kode_pelajaran;
         this.kkm = kkm;
     }
 
-    public String getKode_makul() {
-        return kode_makul;
+    public String getKode_pelajaran() {
+        return kode_pelajaran;
     }
 
-    public void setKode_makul(String kode_makul) {
-        this.kode_makul = kode_makul;
+    public void setKode_pelajaran(String kode_pelajaran) {
+        this.kode_pelajaran = kode_pelajaran;
     }
 
     public double getKkm() {
