@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1 style="text-align: center">Menu Guru</h1>
-        <form action="nilaiSiswa" style="text-align: center">
+        <form action="guru/nilaiSiswa" style="text-align: center">
             <input type="submit" value="Nilai Siswa">
         </form>
     </body>
