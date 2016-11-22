@@ -9,7 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>nilaisiswa</title>
+        <title>Nilai Siswa</title>
+        <script type="text/javascript">
+            <% if ("1".equals(request.getParameter("error"))) {%>
+            alert("Data anda masukkan salah!");
+            <%}%>
+            <% if ("2".equals(request.getParameter("error"))) {%>
+            alert("NIS tidak ditemukan!");
+            <%}%>
+            <% if ("3".equals(request.getParameter("error"))) {%>
+            alert("Data sudah ada!");
+            <%}%>
+                
+        </script>
     </head>
     <body>
         <h1></h1>
@@ -75,8 +87,9 @@
                     "Pancasila & Kewarganegaraan", "Pendidikan Jasmani & Kesehatan",
                     "Prakarya", "Seni Budaya"
                 };
+                String[] kode = {"A","B","C","D","E","F","G","H","I","J"};
             %>
-            <table border="1" style="text-align: left;background-color: white;">
+            <table border="1" style="text-align: left;">
                 <tr>
                     <th>Mata Pelajaran</th>
                     <th>Nilai Tugas</th>
@@ -89,181 +102,13 @@
                 %>
                 <tr>
                     <th><%=daftarMataPelajaran[i]%></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="text" name="<%out.print(kode[i]+"0");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i]+"1");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i]+"2");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i]+"3");%>"></td>
                 </tr>
                 <%}
                 %>
-<!--                <tr>
-                    <th>
-                        Ilmu Pengetahuan Alam
-                    </th>
-                    <td>
-                        <input type="text" name="a1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="a2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="a3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="a4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Ilmu Pengetahuan Sosial
-                    </th>
-                    <td>
-                        <input type="text" name="b1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="b2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="b3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="b4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Matematika
-                    </th>
-                    <td>
-                        <input type="text" name="c1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="c2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="c3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="c4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Agama dan Budi Pekerti
-                    </th>
-                    <td>
-                        <input type="text" name="d1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="d2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="d3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="d4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Bahasa Indonesia
-                    </th>
-                    <td>
-                        <input type="text" name="e1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="e2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="e3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="e4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Bahasa Inggris
-                    </th>
-                    <td>
-                        <input type="text" name="f1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="f2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="f3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="f4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Pancasila dan Kewarganegaraan
-                    </th>
-                    <td>
-                        <input type="text" name="g1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="g2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="g3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="g4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Pendidikan Jasmani dan Kesehatan
-                    </th>
-                    <td>
-                        <input type="text" name="h1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="h2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="h3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="h4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Prakarya
-                    </th>
-                    <td>
-                        <input type="text" name="i1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="i2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="i3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="i4" value="">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Seni Budaya
-                    <td>
-                        <input type="text" name="j1" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="j2" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="j3" value="">
-                    </td>
-                    <td>
-                        <input type="text" name="j4" value="">
-                    </td>-->
             </table>
             <br>
             <input type="submit" value="Simpan">

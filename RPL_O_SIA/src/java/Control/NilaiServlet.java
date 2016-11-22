@@ -40,7 +40,11 @@ public class NilaiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-           
+            for (int i = 0; i < 10; i++) {
+                
+            }
+        } catch (Exception e){
+            response.sendRedirect("guru/homeGuru.jsp?error=1");
         } finally {
             out.close();
         }
@@ -94,7 +98,7 @@ public class NilaiServlet extends HttpServlet {
         Connection connection = databaseConnection.getConnection();
         //buat statement dan query
         PreparedStatement statement = connection.prepareStatement(""
-                + "select * from siswa where username=\'"+a+"\' "
+                + "select * from siswa where nis=\'"+a+"\'"
                 + "");
         //execute query
         ResultSet resultSet = statement.executeQuery();
@@ -108,24 +112,31 @@ public class NilaiServlet extends HttpServlet {
         }
         //jika data tidak ada
         if (list.isEmpty()==true){
+            System.out.println("tidak ada");
             return false;
         }
+        System.out.println("ada");
         return true;
         
     }
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     public boolean CekDataNilai(int semester, int kelas, int tahun_ajaran, String nis ) throws SQLException{
         ArrayList<Data_Nilai> list = new ArrayList<Data_Nilai>();
         String a = nis;
         int b = semester;
         int c = tahun_ajaran;
-        int d = kelas;//!!!!!!!!!!!
+        int d=0;
+        if (kelas == 7) {
+            d=1;
+        } else if (kelas == 8) {
+            kelas=2;
+        } else kelas=3;
         //buat konesi
         Connection connection = new DatabaseConnection().getConnection();
         PreparedStatement statement = connection.prepareStatement(""
                 + "select * from data_nilai where nis=\'"+a+"\' "
-                + "and semester="+b+" and password=\'"+b+"\'"
-                + "");//!!!!!!!!!!!!
+                + "and semester="+b+" and tahun_ajaran="+c+" and kode_mata_pelajaran=\'A"+(d)+"\'"
+                + "");
         //execute query
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()){
@@ -145,8 +156,10 @@ public class NilaiServlet extends HttpServlet {
         if (list.isEmpty()==false){
             return false;
         }
+        System.out.println("asd");
         return true;
     }
+    
     public void HitungNilai(String nis, int semester, String kode_mata_pelajaran, int tahun_ajaran
             , double nilai_harian, double nilai_tugas, double nilai_uts, double nilai_uas) throws SQLException{
         //buat koneksi
@@ -173,7 +186,7 @@ public class NilaiServlet extends HttpServlet {
         else nilai_akhir = nilai_semester;
         //input ke tabel nilai
         statement = connection.prepareStatement(""
-                + "insert into data_nilai(nis, semester, kode_mata_pelajaran, tahun_ajarn"
+                + "insert into data_nilai (nis, semester, kode_mata_pelajaran, tahun_ajaran"
                 + ", nilai_tugas, nilai_harian, nilai_uts, nilai_uas, nilai_semester, nilai_akhir) "
                 + "values (?,?,?,?,?,?,?,?,?,?)"
             );
