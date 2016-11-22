@@ -10,25 +10,30 @@ package Model;
  * @author bella
  */
 public class Data_Nilai {
-       String nis;
-    int tahun_ajaran;
-    String kelas;
-    int semester;
-    double  nilai_harian, nilai_tugas, nilai_uts, nilai_uas, nilai_semester, nilai_akhir;
 
-    public Data_Nilai(String nis, int tahun_ajaran, String kelas, int semester, double nilai_harian, double nilai_tugas, double nilai_uts, double nilai_uas, double nilai_semester, double nilai_akhir) {
-        this.nis = nis;
-        this.tahun_ajaran = tahun_ajaran;
-        this.kelas = kelas;
-        this.semester = semester;
-        this.nilai_harian = nilai_harian;
-        this.nilai_tugas = nilai_tugas;
-        this.nilai_uts = nilai_uts;
-        this.nilai_uas = nilai_uas;
-        this.nilai_semester = nilai_semester;
-        this.nilai_akhir = nilai_akhir;
-    }
-    
+    private String nis;
+    private int tahun_ajaran;
+    private String kode_mata_pelajaran;
+    private int semester;
+    private double nilai_harian;
+    private double nilai_tugas;
+    private double nilai_uts;
+    private double nilai_uas;
+    private double nilai_semester;
+    private double nilai_akhir;
+
+//    public Data_Nilai(String nis, int tahun_ajaran, String kelas, int semester, double nilai_harian, double nilai_tugas, double nilai_uts, double nilai_uas, double nilai_semester, double nilai_akhir) {
+//        this.nis = nis;
+//        this.tahun_ajaran = tahun_ajaran;
+//        this.kelas = kelas;
+//        this.semester = semester;
+//        this.nilai_harian = nilai_harian;
+//        this.nilai_tugas = nilai_tugas;
+//        this.nilai_uts = nilai_uts;
+//        this.nilai_uas = nilai_uas;
+//        this.nilai_semester = nilai_semester;
+//        this.nilai_akhir = nilai_akhir;
+//    }
 
     public String getNis() {
         return nis;
@@ -46,12 +51,12 @@ public class Data_Nilai {
         this.tahun_ajaran = tahun_ajaran;
     }
 
-    public String getKelas() {
-        return kelas;
+    public String getKode_mata_pelajaran() {
+        return kode_mata_pelajaran;
     }
 
-    public void setKelas(String kelas) {
-        this.kelas = kelas;
+    public void setKode_mata_pelajaran(String kode_mata_pelajaran) {
+        this.kode_mata_pelajaran = kode_mata_pelajaran;
     }
 
     public int getSemester() {
@@ -109,5 +114,4 @@ public class Data_Nilai {
     public void setNilai_akhir(double nilai_akhir) {
         this.nilai_akhir = nilai_akhir;
     }
-    
 }
