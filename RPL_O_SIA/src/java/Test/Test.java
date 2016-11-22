@@ -6,6 +6,8 @@
 package Test;
 
 import Control.LoginServlet;
+import Control.NilaiServlet;
+import Model.Data_Nilai;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -15,7 +17,6 @@ import javax.swing.JOptionPane;
  */
 public class Test {
     public static void main(String[] args) throws SQLException {
-        System.out.println(new LoginServlet().login("guru", "guru"));
-        JOptionPane.showMessageDialog(null, "");
+        new NilaiServlet().InsertDataKelas("16001", "7A", 2016);
     }
 }

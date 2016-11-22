@@ -40,16 +40,7 @@ public class NilaiServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NilaiServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NilaiServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+           
         } finally {
             out.close();
         }
@@ -182,7 +173,7 @@ public class NilaiServlet extends HttpServlet {
         else nilai_akhir = nilai_semester;
         //input ke tabel nilai
         statement = connection.prepareStatement(""
-                + "insert into NILAI(nis, semester, kode_mata_pelajaran, tahun_ajarn"
+                + "insert into data_nilai(nis, semester, kode_mata_pelajaran, tahun_ajarn"
                 + ", nilai_tugas, nilai_harian, nilai_uts, nilai_uas, nilai_semester, nilai_akhir) "
                 + "values (?,?,?,?,?,?,?,?,?,?)"
             );
@@ -206,9 +197,26 @@ public class NilaiServlet extends HttpServlet {
 //    }
     //!!!!!!!!!!!!!!!!!!
     public void InsertDataKelas(String nis, String kelas, int tahun_ajaran) throws SQLException{
+        String kelas_akhir="";
+        //hitung status
+        if (status==true) {
+            String[] temp = kelas.split("");
+            kelas_akhir = String.valueOf(Integer.parseInt(temp[0])+1)+temp[1];
+        }
+        else kelas_akhir = kelas;
+        System.out.println(kelas_akhir);
+        //membuat koneksi
         Connection connection = new DatabaseConnection().getConnection();
-        PreparedStatement satement = connection.prepareStatement(""
-                + "select "
-                + "");
+        //membuat statement dan query
+        PreparedStatement statement = connection.prepareStatement(""
+                + "insert into kelas(nis, tahun_ajaran, kelas_awal, kelas_akhir) "
+                + "values (?,?,?,?)"
+                );
+        //input value
+        statement.setString(1, nis);
+        statement.setInt(2, tahun_ajaran+1);
+        statement.setString(3, kelas);
+        statement.setString(4, kelas_akhir);
+        ResultSet resultSet = statement.executeQuery();
     }
 }
