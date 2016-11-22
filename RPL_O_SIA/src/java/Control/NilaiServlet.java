@@ -204,6 +204,7 @@ public class NilaiServlet extends HttpServlet {
 //            double nilai_tugas, double nilai_uts, double nilai_uas, ){
 //                
 //    }
+    //!!!!!!!!!!!!!!!!!!
     public void InsertDataKelas(String nis, String kelas, int tahun_ajaran) throws SQLException{
         Connection connection = new DatabaseConnection().getConnection();
         PreparedStatement satement = connection.prepareStatement(""
