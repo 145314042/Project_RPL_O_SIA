@@ -129,9 +129,9 @@ public class LoginServlet extends HttpServlet {
             for (Login login : list) {
                 //jika data = guru
                 if ("guru".equals(login.getUsername())) 
-                    return "guru/homeGuru.jsp";
+                    return "homeGuru.jsp";
                 //jika data selain guru
-                else return "siswa/homeSiswa.jsp";
+                else return "homeSiswa.jsp";
             }
         }
         //data tidak ada

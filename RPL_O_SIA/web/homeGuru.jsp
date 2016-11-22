@@ -10,11 +10,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Guru</title>
+        <script type="text/javascript">
+            <% if ("1".equals(request.getParameter("success"))) {%>
+            alert("Data berhasil dimasukkan!");
+            <%}%>
+        </script>
     </head>
     <body>
         <h1 style="text-align: center">Menu Guru</h1>
-        <form action="guru/nilaiSiswa" style="text-align: center">
+        <form action="nilaiSiswa.jsp" style="text-align: center">
             <input type="submit" value="Nilai Siswa">
         </form>
+        <br>
+        <form action="home.jsp" style="text-align: center">
+            <input type="submit" value="Keluar">
+        </form>
+        
     </body>
 </html>

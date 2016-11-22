@@ -107,6 +107,7 @@
                     <td><input type="text" name="<%out.print(kode[i]+"2");%>"></td>
                     <td><input type="text" name="<%out.print(kode[i]+"3");%>"></td>
                 </tr>
+                <input type="hidden" name="<%out.print("kode"+i);%>" value="<%out.print(kode[i]);%>">
                 <%}
                 %>
             </table>
