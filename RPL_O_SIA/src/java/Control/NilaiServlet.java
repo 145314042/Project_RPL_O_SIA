@@ -252,11 +252,6 @@ public class NilaiServlet extends HttpServlet {
         //execute query
         resultSet = statement.executeQuery();
     }
-//    public void InsertNilai(String nis, int tahun_ajaran, int semester, double nilai_harian,
-//            double nilai_tugas, double nilai_uts, double nilai_uas, ){
-//                
-//    }
-    //!!!!!!!!!!!!!!!!!!
 
     public void InsertDataKelas(String nis, int tahun_ajaran) throws SQLException {
         String kelas_awal = "";
