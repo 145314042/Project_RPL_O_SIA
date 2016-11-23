@@ -127,32 +127,6 @@ public class TampilRekapServlet extends HttpServlet {
                 }
                 out.println("</table>");
             }
-//            for (Data_Nilai data_Nilai : ListNilai(nis)) {
-//                String mapel=null;
-//                String[] kode=data_Nilai.getKode_mata_pelajaran().split("");
-//                if ("0".equals(kode[1])) mapel=daftarMataPelajaran[0];
-//                if ("1".equals(kode[1])) mapel=daftarMataPelajaran[1];
-//                if ("2".equals(kode[1])) mapel=daftarMataPelajaran[2];
-//                if ("3".equals(kode[1])) mapel=daftarMataPelajaran[3];
-//                if ("4".equals(kode[1])) mapel=daftarMataPelajaran[4];
-//                if ("5".equals(kode[1])) mapel=daftarMataPelajaran[5];
-//                if ("6".equals(kode[1])) mapel=daftarMataPelajaran[6];
-//                if ("7".equals(kode[1])) mapel=daftarMataPelajaran[7];
-//                if ("8".equals(kode[1])) mapel=daftarMataPelajaran[8];
-//                if ("9".equals(kode[1])) mapel=daftarMataPelajaran[9];
-//                //                JOptionPane.showMessageDialog(null, mapel);
-//                out.println("<tr>");
-//                out.println("<th>"+mapel+"</th>");
-//                out.println("<td>"+data_Nilai.getSemester()+"</td>");
-//                out.println("<td>"+data_Nilai.getTahun_ajaran()+"</td>");
-//                out.println("<td>"+data_Nilai.getNilai_tugas()+"</td>");
-//                out.println("<td>"+data_Nilai.getNilai_harian()+"</td>");
-//                out.println("<td>"+data_Nilai.getNilai_uts()+"</td>");
-//                out.println("<td>"+data_Nilai.getNilai_uas()+"</td>");
-//                out.println("<td>"+data_Nilai.getNilai_semester()+"</td>");
-//                out.println("</tr>");
-//            }
-            
             out.println("<form action =\"homeSiswa.jsp\" method=\"post\">");
             out.println("<input type=\"hidden\" name=\"nis\" value=\""+nis+"\">");
             out.println("<input type=\"submit\" value=\"Home\">");
@@ -249,35 +223,4 @@ public class TampilRekapServlet extends HttpServlet {
             i++;
         }
     }
-    
-//    public ArrayList<Data_Nilai> ListNilai(String nis) throws SQLException{
-//        ArrayList<Data_Nilai> list = new ArrayList<Data_Nilai>();
-//        Data_Nilai data_Nilai = new Data_Nilai();
-//        Connection connection = new DatabaseConnection().getConnection();
-//        PreparedStatement statement = connection.prepareStatement(""
-//                + "select * from data_nilai where nis=\'"+nis+"\' "
-//                + "order by tahun_ajaran, semester, kode_mata_pelajaran"
-//                + "");
-//        ResultSet resultSet = statement.executeQuery();
-////        JOptionPane.showMessageDialog(null, size);
-//        while (resultSet.next()){
-//            data_Nilai.setNis(nis);
-//            data_Nilai.setSemester(resultSet.getInt("semester"));
-//            data_Nilai.setTahun_ajaran(resultSet.getInt("tahun_ajaran"));
-//            data_Nilai.setKode_mata_pelajaran(resultSet.getString("kode_mata_pelajaran"));
-//            data_Nilai.setNilai_tugas(resultSet.getDouble("nilai_tugas"));
-//            data_Nilai.setNilai_harian(resultSet.getDouble("nilai_harian"));
-//            data_Nilai.setNilai_uts(resultSet.getDouble("nilai_uts"));
-//            data_Nilai.setNilai_uas(resultSet.getDouble("nilai_uas"));
-//            data_Nilai.setNilai_semester(resultSet.getDouble("nilai_semester"));
-//            data_Nilai.setNilai_akhir(resultSet.getDouble("nilai_akhir"));
-////            JOptionPane.showMessageDialog(null, data_Nilai.getKode_mata_pelajaran());
-//            list.add(data_Nilai);
-//        }
-//        for (Data_Nilai data_Nilai1 : list) {
-//            JOptionPane.showMessageDialog(null, data_Nilai1.getKode_mata_pelajaran());
-//        }
-//        return list;
-//    }
-    
 }
