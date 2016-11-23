@@ -7,6 +7,7 @@ package Test;
 
 import Control.LoginServlet;
 import Control.NilaiServlet;
+import Control.TampilRekapServlet;
 import Model.Data_Nilai;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -18,8 +19,10 @@ import javax.swing.JOptionPane;
 public class Test {
     public static void main(String[] args) throws SQLException {
 //        new NilaiServlet().InsertDataKelas("16001", "7A", 2016);
-        new NilaiServlet().HitungNilai("16001", 2, "A1", 2016, 90, 90, 90, 10);
+//        new NilaiServlet().HitungNilai("16001", 2, "A1", 2016, 90, 90, 90, 10);
 //        new NilaiServlet().CekDataNilai(1, 7, 2016, "16001");
 //        new NilaiServlet().CekSiswa("16001");
+        System.out.println(new TampilRekapServlet().Size("16001"));
+//        new TampilRekapServlet().GetNilai("16001");
     }
 }

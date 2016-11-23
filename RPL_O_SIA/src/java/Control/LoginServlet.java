@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,12 +45,8 @@ public class LoginServlet extends HttpServlet {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-//            request.setAttribute("username", username);
-            out.print("<form action=\"siswa.jsp\">"
-                    + "<input type=\'hidden\' name=\'username\' value=\'"+username+"\'>"
-                    + "</form>");
+            Cookie cookie = new Cookie("nis", username);
+            response.addCookie(cookie);
             response.sendRedirect(login(username,password));
         } finally {
             out.close();

@@ -48,9 +48,9 @@ public class NilaiServlet extends HttpServlet {
             int kelas = Integer.parseInt(request.getParameter("kelas"));
             String[] kode_mata_pelajaran = new String[10];
             for (int i = 0; i < 10; i++) {
-                if (kelas == 7) kode_mata_pelajaran[i] = "A"+(i+1);
-                else if (kelas == 8) kode_mata_pelajaran[i] = "B"+(i+1);
-                else kode_mata_pelajaran[i] = "C"+(i+1);
+                if (kelas == 7) kode_mata_pelajaran[i] = "A"+(i);
+                else if (kelas == 8) kode_mata_pelajaran[i] = "B"+(i);
+                else kode_mata_pelajaran[i] = "C"+(i);
             }
             int tahun_ajaran = Integer.parseInt(request.getParameter("tahun_ajaran"));
             if (!CekSiswa(request.getParameter("nis"))) {

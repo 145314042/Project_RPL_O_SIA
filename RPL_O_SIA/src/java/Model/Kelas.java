@@ -15,13 +15,6 @@ public class Kelas {
     String kelas_awal;
     String kelas_akhir;
 
-    public Kelas(String nis, int tahun_ajaran, String kelas_awal, String kelas_akhir) {
-        this.nis = nis;
-        this.tahun_ajaran = tahun_ajaran;
-        this.kelas_awal = kelas_awal;
-        this.kelas_akhir = kelas_akhir;
-    }
-
     public String getNis() {
         return nis;
     }

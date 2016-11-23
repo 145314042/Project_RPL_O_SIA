@@ -23,8 +23,12 @@
         </form>
         <br>
         <form action="home.jsp" style="text-align: center">
+            <%
+            Cookie cookie=new Cookie("nis","");  
+            cookie.setMaxAge(0);  
+            response.addCookie(cookie);
+            %>
             <input type="submit" value="Keluar">
         </form>
-        
     </body>
 </html>
