@@ -8,6 +8,7 @@ package Control;
 import ConnectionDataBase.DatabaseConnection;
 import Model.Data_Nilai;
 import Model.Kelas;
+import Model.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -46,14 +47,8 @@ public class TampilRekapServlet extends HttpServlet {
         try {
             /* TODO output your page here. You may use following sample code. */
             String nis = request.getParameter("nis");
-            String nama = null;
-            Connection conn = new DatabaseConnection().getConnection();
-            PreparedStatement pStatement = conn.prepareStatement(""
-                    + "select nama from siswa where nis=\'" + nis + "\'");
-            ResultSet rSet = pStatement.executeQuery();
-            while (rSet.next()) {
-                nama = rSet.getString("nama");
-            }
+            String nama = new Siswa().getNamaSiswa(nis);
+            
             String[] daftarMataPelajaran = {
                 "Ilmu Pengetahuan Alam", "Ilmu Pengetahuan Sosial",
                 "Matematika", "Agama dan Budi Pekerti",
@@ -71,6 +66,10 @@ public class TampilRekapServlet extends HttpServlet {
             out.println("NIS  : " + nis);
             out.println("<br>");
             out.println("Nama : " + nama);
+            out.println("<form action=\"homeSiswa.jsp\" method=\"POST\">\n"
+                    + "<input type=\"hidden\" name=\"nis\" value=\"" + nis + "\">\n"
+                    + "<input type=\"submit\" value=\"Kembali\">\n"
+                    + "</form>");
             out.println("<br>");
             out.println("<br>");
             //tampil tabel
@@ -150,11 +149,8 @@ public class TampilRekapServlet extends HttpServlet {
                 }
                 out.println("</table>");
             }
-            out.println("<form action =\"homeSiswa.jsp\" method=\"post\">");
-            out.println("<input type=\"hidden\" name=\"nis\" value=\"" + nis + "\">");
-            out.println("<input type=\"submit\" value=\"Home\">");
-            out.println("asdasdasd");
-            out.println("</form>");
+            
+            System.out.println("");
             out.println("</body>");
             out.println("</html>");
         } finally {

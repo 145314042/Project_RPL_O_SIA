@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * @author bella
  */
 public class Siswa {
+
     String nis;
     private String nama;
     private String tempat_tanggal_lahir;
@@ -53,7 +54,7 @@ public class Siswa {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    
+
     public boolean CekSiswa(String nis) throws SQLException {
         ArrayList<Siswa> list = new ArrayList<Siswa>();
         //baca parameter
@@ -83,5 +84,17 @@ public class Siswa {
         System.out.println("ada");
         return true;
 
+    }
+
+    public String getNamaSiswa(String nis) throws SQLException {
+        String namaSiswa = null;
+        Connection conn = new DatabaseConnection().getConnection();
+        PreparedStatement pStatement = conn.prepareStatement(""
+                + "select nama from siswa where nis=\'" + nis + "\'");
+        ResultSet rSet = pStatement.executeQuery();
+        while (rSet.next()) {
+            namaSiswa = rSet.getString("nama");
+        }
+        return namaSiswa;
     }
 }
