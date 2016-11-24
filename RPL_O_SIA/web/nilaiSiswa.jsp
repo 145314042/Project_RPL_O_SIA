@@ -20,13 +20,13 @@
             <% if ("3".equals(request.getParameter("error"))) {%>
             alert("Data sudah ada!");
             <%}%>
-                
+
         </script>
     </head>
     <body>
         <h1></h1>
         <h1 style="text-align: center">INPUT NILAI SISWA</h1>
-        <form action="NilaiServlet" method="post" style="text-align: left;">
+        <form action="NilaiServlet" method="POST" style="text-align: left;">
             <table style="text-align: left; ">
                 <tr>
                     <th>
@@ -87,7 +87,7 @@
                     "Pancasila & Kewarganegaraan", "Pendidikan Jasmani & Kesehatan",
                     "Prakarya", "Seni Budaya"
                 };
-                String[] kode = {"A","B","C","D","E","F","G","H","I","J"};
+                String[] kode = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
             %>
             <table border="1" style="text-align: left;">
                 <tr>
@@ -102,17 +102,20 @@
                 %>
                 <tr>
                     <th><%=daftarMataPelajaran[i]%></th>
-                    <td><input type="text" name="<%out.print(kode[i]+"0");%>"></td>
-                    <td><input type="text" name="<%out.print(kode[i]+"1");%>"></td>
-                    <td><input type="text" name="<%out.print(kode[i]+"2");%>"></td>
-                    <td><input type="text" name="<%out.print(kode[i]+"3");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i] + "0");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i] + "1");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i] + "2");%>"></td>
+                    <td><input type="text" name="<%out.print(kode[i] + "3");%>"></td>
                 </tr>
-                <input type="hidden" name="<%out.print("kode"+i);%>" value="<%out.print(kode[i]);%>">
+                <input type="hidden" name="<%out.print("kode" + i);%>" value="<%out.print(kode[i]);%>">
                 <%}
                 %>
             </table>
             <br>
             <input type="submit" value="Simpan">
+        </form>
+        <form action="homeGuru.jsp">
+            <input type="submit" value="kembali">
         </form>
     </body>
 </html>

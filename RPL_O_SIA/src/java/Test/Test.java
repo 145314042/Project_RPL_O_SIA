@@ -22,7 +22,7 @@ public class Test {
 //        new NilaiServlet().HitungNilai("16001", 2, "A1", 2016, 90, 90, 90, 10);
 //        new NilaiServlet().CekDataNilai(1, 7, 2016, "16001");
 //        new NilaiServlet().CekSiswa("16001");
-        System.out.println(new TampilRekapServlet().Size("16001"));
-//        new TampilRekapServlet().GetNilai("16001");
+        System.out.println(new Data_Nilai().Size("16001"));
+        new Data_Nilai().GetNilai("16001");
     }
 }

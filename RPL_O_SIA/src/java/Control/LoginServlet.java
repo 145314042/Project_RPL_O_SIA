@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
             String password = request.getParameter("password");
             Cookie cookie = new Cookie("nis", username);
             response.addCookie(cookie);
-            response.sendRedirect(login(username,password));
+            //memanggil fungsi login pada kelas login dengan parameter username dan password
+            response.sendRedirect(new Login().login(username,password));
         } finally {
             out.close();
         }
@@ -100,40 +101,5 @@ public class LoginServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public String login(String username, String password) throws SQLException {
-        ArrayList<Login> list = new ArrayList<Login>();
-        //baca parameter
-        String a = username, b = password;
-        //buat koneksi
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        Connection connection = databaseConnection.getConnection();
-        //buat statement dan query
-        PreparedStatement statement = connection.prepareStatement(""
-                + "select * from login where username=\'"+a+"\' "
-                + "and password=\'"+b+"\'"
-        );
-        ResultSet resultSet = statement.executeQuery();
-        
-        while (resultSet.next()){
-            Login login = new Login();
-            login.setUsername(resultSet.getString("username"));
-            login.setPassword(resultSet.getString("password"));
-            list.add(login);
-        }
-        //jika data
-        //data ada
-        if (!list.isEmpty()) {
-            for (Login login : list) {
-                //jika data = guru
-                if ("guru".equals(login.getUsername())) 
-                    return "homeGuru.jsp";
-                //jika data selain guru
-                else return "homeSiswa.jsp";
-            }
-        }
-        //data tidak ada
-        else return "home.jsp?error=1";
-        return null;
-    }
-
+    
 }
