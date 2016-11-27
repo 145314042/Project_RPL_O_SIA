@@ -88,13 +88,17 @@ public class Siswa {
 
     public String getNamaSiswa(String nis) throws SQLException {
         String namaSiswa = null;
+        //buat koneksi
         Connection conn = new DatabaseConnection().getConnection();
+        //buat statement dan query
         PreparedStatement pStatement = conn.prepareStatement(""
                 + "select nama from siswa where nis=\'" + nis + "\'");
+        //execute query
         ResultSet rSet = pStatement.executeQuery();
         while (rSet.next()) {
             namaSiswa = rSet.getString("nama");
         }
+        //mengembalikan nama siswa
         return namaSiswa;
     }
 }

@@ -127,7 +127,9 @@ public class Data_Nilai {
     }
     
     public boolean CekDataNilai(int semester, int kelas, int tahun_ajaran, String nis) throws SQLException {
+        //buat ArrayList untuk kelas Data_Nilai
         ArrayList<Data_Nilai> list = new ArrayList<Data_Nilai>();
+        //baca paramter
         String a = nis;
         int b = semester;
         int c = tahun_ajaran;
@@ -141,6 +143,7 @@ public class Data_Nilai {
         }
         //buat konesi
         Connection connection = new DatabaseConnection().getConnection();
+        //buat statement dan query
         PreparedStatement statement = connection.prepareStatement(""
                 + "select * from data_nilai where nis=\'" + a + "\' "
                 + "and semester=" + b + " and tahun_ajaran=" + c + " and kode_mata_pelajaran=\'A" + d + "\'"
@@ -161,10 +164,13 @@ public class Data_Nilai {
             data_Nilai.setKode_mata_pelajaran(resultSet.getString("kode_mata_pelajaran"));
             list.add(data_Nilai);
         }
+        //jika ArrayList kosong
         if (list.isEmpty() == false) {
+            //mengembalikan dengan nilai false
             return false;
         }
-        System.out.println("asd");
+//        System.out.println("asd");
+        //selain itu mengembalikan dengan nilai ture
         return true;
     }
     
@@ -180,17 +186,22 @@ public class Data_Nilai {
         double nilai_semester = (0.1 * nilai_tugas) + (0.2 * nilai_harian) + (0.3 * nilai_uts) + (0.4 * nilai_uas);
         //hitung nilai akhir
         double nilai_akhir = 0;
+        //jika semester = 2
         if (semester == 2) {
+            //buat statement dan query
             statement = connection.prepareStatement(""
                     + "select nilai_akhir from data_nilai where nis=\'" + nis + "\' "
                     + "and semester=1 and tahun_ajaran=" + tahun_ajaran + " "
                     + "and kode_mata_pelajaran=\'"+kode_mata_pelajaran+"\'"
                     + "");
+            //execute query
             resultSet = statement.executeQuery();
+            //nilai akhir = (nilai akhir semester sebelumnya + nilai semester ini) / 2
             while (resultSet.next()) {
                 System.out.println(resultSet.getDouble("nilai_akhir"));
                 nilai_akhir = (resultSet.getDouble("nilai_akhir") + nilai_semester) / 2;
             }
+            //buat statement dan query
             statement = connection.prepareStatement(""
                     + "select kkm from mata_pelajaran where "
                     + "kode_mata_pelajaran=\'"+kode_mata_pelajaran+"\'"
@@ -199,14 +210,16 @@ public class Data_Nilai {
             //hitung status per mata pelajaran
             while (resultSet.next()) {
                 double kkm = resultSet.getDouble("kkm");
+                //jika nilai_akhir <= kkm
                 if (nilai_akhir <= kkm) {
                     statusSementara = false;
                 }
             }
+        //selain itu nilai_akhir = nilai_semester
         } else {
             nilai_akhir = nilai_semester;
         }
-        //input ke tabel nilai
+        //buat statement dan query
         statement = connection.prepareStatement(""
                 + "insert into data_nilai (nis, semester, kode_mata_pelajaran, tahun_ajaran"
                 + ", nilai_tugas, nilai_harian, nilai_uts, nilai_uas, nilai_semester, nilai_akhir) "
@@ -230,26 +243,35 @@ public class Data_Nilai {
     ////////////////////////////////////////////////////////////
     
     public int Size(String nis) throws SQLException{
+        //buat koneksi
         Connection connection = new DatabaseConnection().getConnection();
+        //buat statement dan query
         PreparedStatement statement = connection.prepareStatement(""
                 + "select nis from data_nilai where nis=\'"+nis+"\'");
+        //execute query
         ResultSet resultSet = statement.executeQuery();
+        //buat statement
         while (resultSet.next()){
             size++;
         }
+        //mengembalikan size
         return size;
     }
     
     public void GetNilai (String nis) throws SQLException{
+        //buat koneksi
         Connection connection = new DatabaseConnection().getConnection();
+        //buat statement dan query
         PreparedStatement statement = connection.prepareStatement(""
                 + "select * from data_nilai where nis=\'"+nis+"\' "
                 + "order by tahun_ajaran, semester, kode_mata_pelajaran"
                 + "");
+        //execute query
         ResultSet resultSet = statement.executeQuery();
+        //implementasi array new data_nilai[size]
         data = new Data_Nilai[Size(nis)];
-        System.out.println(data.length);
         int i = 0;
+        //mengeset data query ke array
         while (resultSet.next()) {
             data[i] = new Data_Nilai();
             data[i].setNis(nis);
@@ -262,7 +284,6 @@ public class Data_Nilai {
             data[i].setNilai_uas(resultSet.getDouble("nilai_uas"));
             data[i].setNilai_semester(resultSet.getDouble("nilai_semester"));
             data[i].setNilai_akhir(resultSet.getDouble("nilai_akhir"));
-//            System.out.println(data[i].getKode_mata_pelajaran());
             i++;
         }
     }
