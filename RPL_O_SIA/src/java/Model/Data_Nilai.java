@@ -168,7 +168,9 @@ public class Data_Nilai {
         return true;
     }
     
-    public static void HitungNilai(String nis, int semester, String kode_mata_pelajaran, int tahun_ajaran, double nilai_harian, double nilai_tugas, double nilai_uts, double nilai_uas) throws SQLException {
+    public static void HitungNilai(String nis, int semester, String kode_mata_pelajaran, 
+            int tahun_ajaran, double nilai_harian, double nilai_tugas, double nilai_uts, 
+            double nilai_uas) throws SQLException {
         //buat koneksi
         Connection connection = new DatabaseConnection().getConnection();
         //buat statement
