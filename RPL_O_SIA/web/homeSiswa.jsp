@@ -23,7 +23,7 @@
     </head>
     <body>
         <h1>Selamat datang <%=nis%></h1>
-        <form action="TampilRekapServlet">
+        <form action="TampilRekap">
             <!--<form action="TampilRekap.jsp">-->
             <input type="hidden" name="nis" value="<%=nis%>">
             <input type="submit" value="Tampil Rekap Nilai">

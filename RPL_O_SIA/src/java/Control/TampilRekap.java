@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
  *
  * @author Lycorice
  */
-public class TampilRekapServlet extends HttpServlet {
+public class TampilRekap extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -173,7 +173,7 @@ public class TampilRekapServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(TampilRekapServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TampilRekap.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -191,7 +191,7 @@ public class TampilRekapServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(TampilRekapServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TampilRekap.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

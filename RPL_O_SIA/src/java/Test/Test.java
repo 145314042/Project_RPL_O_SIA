@@ -7,7 +7,7 @@ package Test;
 
 import Control.LoginServlet;
 import Control.NilaiServlet;
-import Control.TampilRekapServlet;
+import Control.TampilRekap;
 import Model.Data_Nilai;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;

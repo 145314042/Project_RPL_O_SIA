@@ -9,8 +9,8 @@
         <servlet-class>Control.NilaiServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TampilRekapServlet</servlet-name>
-        <servlet-class>Control.TampilRekapServlet</servlet-class>
+        <servlet-name>TampilRekap</servlet-name>
+        <servlet-class>Control.TampilRekap</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -21,8 +21,8 @@
         <url-pattern>/NilaiServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TampilRekapServlet</servlet-name>
-        <url-pattern>/TampilRekapServlet</url-pattern>
+        <servlet-name>TampilRekap</servlet-name>
+        <url-pattern>/TampilRekap</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
