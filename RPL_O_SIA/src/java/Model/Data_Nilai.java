@@ -185,9 +185,6 @@ public class Data_Nilai {
                     + "and kode_mata_pelajaran=\'"+kode_mata_pelajaran+"\'"
                     + "");
             resultSet = statement.executeQuery();
-//            if (resultSet.wasNull()==true) {
-//                return;
-//            }
             while (resultSet.next()) {
                 System.out.println(resultSet.getDouble("nilai_akhir"));
                 nilai_akhir = (resultSet.getDouble("nilai_akhir") + nilai_semester) / 2;

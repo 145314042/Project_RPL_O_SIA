@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -17,7 +17,7 @@ import oracle.jdbc.pool.OracleDataSource;
 public class DatabaseConnection {
 //    private String jdbcURL = "jdbc:oracle:thin:@172.23.9.185:1521:orcl";
 //    private String user = "mhs145314042";
-//    private String password = "mhs145314042";
+//    private String password = "lastlight";
     private String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
     private String user = "sia";
     private String password = "sia";

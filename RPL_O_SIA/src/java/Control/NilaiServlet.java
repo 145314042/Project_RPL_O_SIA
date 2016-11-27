@@ -5,17 +5,11 @@
  */
 package Control;
 
-import ConnectionDataBase.DatabaseConnection;
 import Model.Data_Nilai;
 import Model.Kelas;
 import Model.Siswa;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +18,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author SIWI
+ * @author Lycorice
  */
 public class NilaiServlet extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,26 +45,28 @@ public class NilaiServlet extends HttpServlet {
                 else kode_mata_pelajaran[i] = "C"+(i);
             }
             int tahun_ajaran = Integer.parseInt(request.getParameter("tahun_ajaran"));
+            //1
             if (!new Siswa().CekSiswa(request.getParameter("nis"))) {
                 response.sendRedirect("nilaiSiswa.jsp?error=2");
             }
+            //2
             if (!new Data_Nilai().CekDataNilai(semester,kelas,tahun_ajaran,nis)) {
                 response.sendRedirect("nilaiSiswa.jsp?error=3");
             }
+            //3
             for (int i = 0; i < 10; i++) {
-//                JOptionPane.showMessageDialog(null, "as");
                 String[] kode = {"A","B","C","D","E","F","G","H","I","J"};
                 double nilai1 = Double.parseDouble(request.getParameter(kode[i]+0));
                 double nilai2 = Double.parseDouble(request.getParameter(kode[i]+1));
                 double nilai3 = Double.parseDouble(request.getParameter(kode[i]+2));
                 double nilai4 = Double.parseDouble(request.getParameter(kode[i]+3));
-//                JOptionPane.showMessageDialog(null, (kode_mata_pelajaran[i]));
                 new Data_Nilai().HitungNilai(nis, semester, kode_mata_pelajaran[i], tahun_ajaran, nilai1, nilai2, nilai3, nilai4);
             }
-//                JOptionPane.showMessageDialog(null, "a");
+            //4
             if (semester == 2){
                 new Kelas().InsertDataKelas(nis, tahun_ajaran);
             }
+            //5
             response.sendRedirect("homeGuru.jsp?success=1");
         } catch (Exception e) {
             response.sendRedirect("nilaiSiswa.jsp?error=1");
