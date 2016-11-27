@@ -75,11 +75,11 @@ public class TampilRekap extends HttpServlet {
             //tampil tabel
             Data_Nilai data_Nilai = new Data_Nilai();
             data_Nilai.GetNilai(nis);
-//            JOptionPane.showMessageDialog(null, size);
+
             for (int i = 0; i < (data_Nilai.Size(nis) / 10); i++) {
                 String[] temp = data_Nilai.data[0 + (i * 10)].getKode_mata_pelajaran().split("");
                 String kelas = null;
-//                JOptionPane.showMessageDialog(null, temp[0]);
+
                 if (temp[0].equals("A")) {
                     kelas = "7";
                 } else if (temp[0].equals("B")) {
