@@ -21,7 +21,6 @@ public class Data_Nilai {
     int size = 0;
     public static Data_Nilai[] data;
     
-    
     private String nis;
     private int tahun_ajaran;
     private String kode_mata_pelajaran;
@@ -32,19 +31,6 @@ public class Data_Nilai {
     private double nilai_uas;
     private double nilai_semester;
     private double nilai_akhir;
-
-//    public Data_Nilai(String nis, int tahun_ajaran, String kelas, int semester, double nilai_harian, double nilai_tugas, double nilai_uts, double nilai_uas, double nilai_semester, double nilai_akhir) {
-//        this.nis = nis;
-//        this.tahun_ajaran = tahun_ajaran;
-//        this.kelas = kelas;
-//        this.semester = semester;
-//        this.nilai_harian = nilai_harian;
-//        this.nilai_tugas = nilai_tugas;
-//        this.nilai_uts = nilai_uts;
-//        this.nilai_uas = nilai_uas;
-//        this.nilai_semester = nilai_semester;
-//        this.nilai_akhir = nilai_akhir;
-//    }
 
     public String getNis() {
         return nis;
@@ -125,7 +111,7 @@ public class Data_Nilai {
     public void setNilai_akhir(double nilai_akhir) {
         this.nilai_akhir = nilai_akhir;
     }
-    
+////////////    
     public boolean CekDataNilai(int semester, int kelas, int tahun_ajaran, String nis) throws SQLException {
         //buat ArrayList untuk kelas Data_Nilai
         ArrayList<Data_Nilai> list = new ArrayList<Data_Nilai>();

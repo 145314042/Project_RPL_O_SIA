@@ -60,6 +60,10 @@ public class NilaiServlet extends HttpServlet {
                 double nilai2 = Double.parseDouble(request.getParameter(kode[i]+1));
                 double nilai3 = Double.parseDouble(request.getParameter(kode[i]+2));
                 double nilai4 = Double.parseDouble(request.getParameter(kode[i]+3));
+                if (nilai1<=0||nilai1>=100)response.sendRedirect("nilaiSiswa.jsp?error=4");
+                if (nilai2<=0||nilai2>=100)response.sendRedirect("nilaiSiswa.jsp?error=4");
+                if (nilai3<=0||nilai3>=100)response.sendRedirect("nilaiSiswa.jsp?error=4");
+                if (nilai4<=0||nilai4>=100)response.sendRedirect("nilaiSiswa.jsp?error=4");
                 new Data_Nilai().HitungNilai(nis, semester, kode_mata_pelajaran[i], tahun_ajaran, nilai1, nilai2, nilai3, nilai4);
             }
             //4

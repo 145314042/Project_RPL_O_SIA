@@ -20,6 +20,9 @@
             <% if ("3".equals(request.getParameter("error"))) {%>
             alert("Data sudah ada!");
             <%}%>
+            <% if ("4".equals(request.getParameter("error"))) {%>
+            alert("Data nilai salah!");
+            <%}%>
 
         </script>
     </head>
