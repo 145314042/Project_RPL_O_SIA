@@ -29,7 +29,7 @@ public class DatabaseConnection {
             ods = new OracleDataSource();
             ods.setURL(jdbcURL);
             connection = ods.getConnection(user, password);
-            System.out.println("koneksi ok");
+//            System.out.println("koneksi ok");
         } catch (SQLException ex) {
             System.out.println("message: " + ex.getMessage());
         }

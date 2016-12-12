@@ -17,11 +17,11 @@ public class TestSiswa {
         Siswa data = new Siswa();
         
         //cek siswa
-        boolean siswa = data.CekSiswa("16001");
-        if (siswa) System.out.println("data ada");
-        else System.out.println("data tidak ada");
+        data.CekSiswa("16000");
+        data.CekSiswa("16001");
         
         //get nama siswa
         System.out.println(data.getNamaSiswa("16001"));
+        System.out.println(data.getNamaSiswa("160"));
     }
 }

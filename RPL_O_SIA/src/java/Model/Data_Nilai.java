@@ -119,20 +119,20 @@ public class Data_Nilai {
         String a = nis;
         int b = semester;
         int c = tahun_ajaran;
-        int d = 0;
+        String d = "";
         if (kelas == 7) {
-            d = 1;
+            d = "A1";
         } else if (kelas == 8) {
-            kelas = 2;
+            d = "B1";
         } else {
-            kelas = 3;
+            d = "C1";
         }
         //buat konesi
         Connection connection = new DatabaseConnection().getConnection();
         //buat statement dan query
         PreparedStatement statement = connection.prepareStatement(""
                 + "select * from data_nilai where nis=\'" + a + "\' "
-                + "and semester=" + b + " and tahun_ajaran=" + c + " and kode_mata_pelajaran=\'A" + d + "\'"
+                + "and semester=" + b + " and tahun_ajaran=" + c + " and kode_mata_pelajaran=\'" + d + "\'"
                 + "");
         //execute query
         ResultSet resultSet = statement.executeQuery();
@@ -155,7 +155,7 @@ public class Data_Nilai {
             //mengembalikan dengan nilai false
             return false;
         }
-//        System.out.println("asd");
+        System.out.println("asd");
         //selain itu mengembalikan dengan nilai ture
         return true;
     }
