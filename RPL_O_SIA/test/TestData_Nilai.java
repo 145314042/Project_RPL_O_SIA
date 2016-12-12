@@ -18,8 +18,8 @@ public class TestData_Nilai {
         //check data nilai
         System.out.println("check data nilai");
         Boolean checkDataNilai = data.CekDataNilai(1, 7, 2016, "16001");
-        if (checkDataNilai) System.out.println("data ada");
-        else System.out.println("data tidak ada");
+        if (checkDataNilai==false) System.out.println("data ada");
+        else if (true==checkDataNilai) System.out.println("data tidak ada");
         
         //size
 //        System.out.println("\nsize");

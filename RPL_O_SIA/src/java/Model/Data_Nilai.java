@@ -155,7 +155,7 @@ public class Data_Nilai {
             //mengembalikan dengan nilai false
             return false;
         }
-        System.out.println("asd");
+//        System.out.println("asd");
         //selain itu mengembalikan dengan nilai ture
         return true;
     }
