@@ -20,6 +20,9 @@ public class TestData_Nilai {
         Boolean checkDataNilai = data.CekDataNilai(1, 7, 2016, "16001");
         if (checkDataNilai==false) System.out.println("data ada");
         else if (true==checkDataNilai) System.out.println("data tidak ada");
+        checkDataNilai = data.CekDataNilai(1, 7, 2016, "1601");
+        if (checkDataNilai==false) System.out.println("data ada");
+        else if (true==checkDataNilai) System.out.println("data tidak ada");
         
         //size
 //        System.out.println("\nsize");
