@@ -136,6 +136,7 @@ public class Data_Nilai {
                 + "");
         //execute query
         ResultSet resultSet = statement.executeQuery();
+        //set value ke arraylist
         while (resultSet.next()) {
             Data_Nilai data_Nilai = new Data_Nilai();
             data_Nilai.setNis(resultSet.getString("nis"));

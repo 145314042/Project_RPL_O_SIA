@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -51,6 +52,34 @@ public class Kelas {
 
     public void setKelas_akhir(String kelas_akhir) {
         this.kelas_akhir = kelas_akhir;
+    }
+    
+    public boolean cekTahunAjaran (String nis, int tahun_ajaran) throws SQLException{
+        //buat arrayList
+        ArrayList<Kelas> list = new ArrayList<Kelas>();
+        int a = tahun_ajaran;
+        int b = a-1;
+        //membuat koneksi
+        Connection connection = new DatabaseConnection().getConnection();
+        //membuat statement
+        PreparedStatement statement;
+        ResultSet resultSet;
+        //membuat query untuk cari kelas awal
+        statement = connection.prepareStatement(""
+                + "select nis from kelas where tahun_ajaran="+a
+                + " or tahun_ajaran="+b
+                + "");
+        //execute query
+        resultSet = statement.executeQuery();
+        //set nis ke array
+        while (resultSet.next()) {
+            Kelas kelas = new Kelas();
+            kelas.setNis(resultSet.getString("nis"));
+            list.add(kelas);
+        }
+        //jika arraylist
+        if (list.isEmpty()) return false;
+        return true;
     }
     
     public void InsertDataKelas(String nis, int tahun_ajaran) throws SQLException {

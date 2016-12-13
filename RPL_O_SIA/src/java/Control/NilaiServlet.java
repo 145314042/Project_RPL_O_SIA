@@ -65,7 +65,10 @@ public class NilaiServlet extends HttpServlet {
                 cd = 2;
             }
             //2 tahun ajaran
-            //otw
+            if (new Kelas().cekTahunAjaran(nis, tahun_ajaran)==false){
+                stat = false;
+                cd = 5;
+            }
             //3 kelas
             if (new Data_Nilai().CekDataNilai(semester,kelas,tahun_ajaran,nis)==false) {
                 cd = 3;
@@ -77,10 +80,10 @@ public class NilaiServlet extends HttpServlet {
                 nilai2[i] = Double.parseDouble(request.getParameter(kode[i]+1));
                 nilai3[i] = Double.parseDouble(request.getParameter(kode[i]+2));
                 nilai4[i] = Double.parseDouble(request.getParameter(kode[i]+3));
-                if (nilai1[i]<=0||nilai1[i]>=100){cd=4;stat = false;}
-                if (nilai2[i]<=0||nilai2[i]>=100){cd=4;stat = false;}
-                if (nilai3[i]<=0||nilai3[i]>=100){cd=4;stat = false;}
-                if (nilai4[i]<=0||nilai4[i]>=100){cd=4;stat = false;}
+                if (nilai1[i]<0||nilai1[i]>100){cd=4;stat = false;}
+                if (nilai2[i]<0||nilai2[i]>100){cd=4;stat = false;}
+                if (nilai3[i]<0||nilai3[i]>100){cd=4;stat = false;}
+                if (nilai4[i]<0||nilai4[i]>100){cd=4;stat = false;}
             }
         } catch (NumberFormatException e) {
             cd=1;
@@ -91,10 +94,11 @@ public class NilaiServlet extends HttpServlet {
         }finally {
             if (stat==false) response.sendRedirect("nilaiSiswa.jsp?error="+cd);
             if (stat==true){
-                //4
+                //5 hitung nilai
                 for (int i = 0; i < 10; i++) {
                     new Data_Nilai().HitungNilai(nis, semester, kode_mata_pelajaran[i], tahun_ajaran, nilai1[i], nilai2[i], nilai3[i], nilai4[i]);
                 }
+                //6 insert kelas
                 if (semester == 2){
                     new Kelas().InsertDataKelas(nis, tahun_ajaran);
                 }
@@ -102,8 +106,6 @@ public class NilaiServlet extends HttpServlet {
             }
             out.close();
         }
-            //5
-            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -23,6 +23,9 @@
             <% if ("4".equals(request.getParameter("error"))) {%>
             alert("Data nilai salah!");
             <%}%>
+            <% if ("5".equals(request.getParameter("error"))) {%>
+            alert("Tahun ajaran tidak ditemukan!");
+            <%}%>
 
         </script>
     </head>

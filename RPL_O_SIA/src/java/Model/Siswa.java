@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class Siswa {
 
-    String nis;
+    private String nis;
     private String nama;
     private String tempat_tanggal_lahir;
     private String alamat;
@@ -56,6 +56,7 @@ public class Siswa {
     }
 
     public boolean CekSiswa(String nis) throws SQLException {
+        //buat arraylist
         ArrayList<Siswa> list = new ArrayList<Siswa>();
         //baca parameter
         String a = nis;
@@ -68,6 +69,7 @@ public class Siswa {
                 + "");
         //execute query
         ResultSet resultSet = statement.executeQuery();
+        //set value 
         while (resultSet.next()) {
             Siswa siswa = new Siswa();
             siswa.setNis(resultSet.getString("nis"));

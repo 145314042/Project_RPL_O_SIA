@@ -47,6 +47,7 @@ public class TampilRekap extends HttpServlet {
         try {
             /* TODO output your page here. You may use following sample code. */
             String nis = request.getParameter("nis");
+            //1 nama
             String nama = new Siswa().getNamaSiswa(nis);
             
             String[] daftarMataPelajaran = {
@@ -72,11 +73,12 @@ public class TampilRekap extends HttpServlet {
                     + "</form>");
             out.println("<br>");
             out.println("<br>");
-            //tampil tabel
+            //2 nilai siswa
             Data_Nilai data_Nilai = new Data_Nilai();
             data_Nilai.GetNilai(nis);
-
-            for (int i = 0; i < (data_Nilai.Size(nis) / 10); i++) {
+            //3 size
+            int size = data_Nilai.Size(nis);
+            for (int i = 0; i < size; i++) {
                 String[] temp = data_Nilai.data[0 + (i * 10)].getKode_mata_pelajaran().split("");
                 String kelas = null;
 

@@ -14,7 +14,15 @@ import java.sql.SQLException;
  */
 public class TestKelas {
     public static void main(String[] args) throws SQLException {
-        System.out.println("insert data kelas");
-        new Kelas().InsertDataKelas("16002", 2016);
+        //insert data kelas
+//        System.out.println("insert data kelas");
+//        new Kelas().InsertDataKelas("16002", 2016);
+        
+        //cek tahun ajaran
+        System.out.println("cek tahun ajaran");
+        if (new Kelas().cekTahunAjaran("16001", 2016)==true) System.out.println("ada");
+        else System.out.println("tidak ada");
+        if (new Kelas().cekTahunAjaran("16001", 2019)==true) System.out.println("ada");
+        else System.out.println("tidak ada");
     }
 }
